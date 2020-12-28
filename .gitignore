@@ -132,4 +132,4 @@ dmypy.json
 # End of https://www.gitignore.io/api/python,vagrant
 eb-package.zip
 static/
-rest_api_login/secret_setting.py
+restapi-django-login/profiles_login/profiles_login/secret_setting.py
