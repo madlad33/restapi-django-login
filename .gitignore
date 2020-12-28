@@ -133,3 +133,4 @@ dmypy.json
 eb-package.zip
 static/
 restapi-django-login/profiles_login/profiles_login/secret_setting.py
+profiles_login/profiles_login/secret_settings.py
