@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'profile_api',
-
+    'django_filters',
 
 ]
 
@@ -124,3 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL='profile_api.UserProfile'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
