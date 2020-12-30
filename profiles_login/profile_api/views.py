@@ -2,11 +2,12 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import HelloSerializer
+from .serializers import HelloSerializer,ProfileSerializer
 from .models import *
 from rest_framework import viewsets
+from .permissions import UpdateOwnProfile
 # Create your views here.
-
+from rest_framework.authentication import TokenAuthentication
 class HelloAPIView(APIView):
     """Test api view"""
     serializer_class = HelloSerializer
@@ -85,3 +86,10 @@ class HelloViewsSet(viewsets.ViewSet):
 
     def destroy(self,request,pk=None):
         return Response({'http_method':'DELETE'})
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    """Handles creating and updating profiles"""
+    serializer_class = ProfileSerializer
+    queryset = UserProfile.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (UpdateOwnProfile,)
