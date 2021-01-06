@@ -11,15 +11,15 @@ Here is the list of all the urls.
 ![plot](./screenshots/all-the-urls.jpg)
 
 Login page:
-![Screenshot](screenshots/login.jpg)
+![plot](./screenshots/login.jpg)
 
 After logging in:
-![Screenshot](screenshots/after-logging.jpg)
+![plot](./screenshots/after-logging.jpg)
 
 Adding a new status:
-![Screenshot](screenshots/add-status.jpg)
+![plot](./screenshots/add-status.jpg)
 
 After adding new status:
-![Screenshot](screenshots/after-adding.jpg)
+![plot](./screenshots/after-adding.jpg)
 
 
