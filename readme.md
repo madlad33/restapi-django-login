@@ -8,7 +8,7 @@
 # Screenshots:-
 
 Here is the list of all the urls.
-![alt text](https://github.com/madlad33/restapi-django-login/screenshots/blob/master/all-the-urls.jpg?raw=true)
+![alt text](https://github.com/madlad33/restapi-django-login/screenshots/master/all-the-urls.jpg?raw=true)
 
 
 Login page:
