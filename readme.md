@@ -8,8 +8,7 @@
 # Screenshots:-
 
 Here is the list of all the urls.
-![plot](./screenshots/all-the-urls.jpg)
-
+![Alt text](/screenshots/all-the-urls.jpg?raw=true "all-the-urls")
 Login page:
 ![plot](./screenshots/login.jpg)
 
