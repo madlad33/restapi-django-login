@@ -2,16 +2,16 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import HelloSerializer, ProfileSerializer
+from .serializers import HelloSerializer, ProfileSerializer,ProfileFeedItemSerializer
 from .models import *
 from rest_framework import viewsets
-from .permissions import UpdateOwnProfile
+from .permissions import UpdateOwnProfile,UpdateOwnFeed
 # Create your views here.
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import filters
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
-
+from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 class HelloAPIView(APIView):
     """Test api view"""
     serializer_class = HelloSerializer
@@ -104,3 +104,12 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 class UserLoginAPIView(ObtainAuthToken):
     """Handles creating of user authentication token"""
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+class UserProfileFeedViewSet(viewsets.ModelViewSet):
+    """Handles CRUD profile feed items"""
+    authentication_classes = (TokenAuthentication,)
+    serializer_class = ProfileFeedItemSerializer
+    queryset = ProfileFeedItem.objects.all()
+    permission_classes = (UpdateOwnFeed,IsAuthenticated)
+    def perform_create(self, serializer):
+        """Sets the user profile to the logged in user"""
+        serializer.save(user_profile=self.request.user)
